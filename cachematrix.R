@@ -25,13 +25,15 @@ makeCacheMatrix <- function(x = matrix()) {
              getsolve = getsolve)
 }
 
-#This sets the function in an object called 'mydata'
+#This sets the specially created matrix by the function above in an object called 'mydata'
 mydata<-makeCacheMatrix(a)
 
 
-# cacheSolve returns an inversed matrix. If the value is already calculated before, 
+# cacheSolve calculates an inversed version of the matrix created in the function above.
+# If the value is already calculated before, 
 # it returns the value of the stored matrix (and displayse "getting cached data"), 
-# if it is a new matrix, it calculates solve(matrix)
+# if it is a new matrix, it calculates solve(matrix) and sets this value in the 
+# make CacheMatrixfunction
 
 cacheSolve<- function(x, ...) {
         m <- x$getsolve()
@@ -45,5 +47,5 @@ cacheSolve<- function(x, ...) {
         m
 }
 
-#This prints your inversed matrix
+#This prints the inversed matrix
 cacheSolve(mydata)
